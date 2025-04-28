@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff3e0;
+            color: #333;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #ff8c00;
+            padding: 20px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: white;
+            font-size: 3em;
+            margin: 0;
+            padding: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .birthday-cake {
+            font-size: 100px;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+        
+        .message {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff8c00;
+        }
+        
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+        }
+        
+        .photo {
+            width: 200px;
+            height: 200px;
+            background-color: #ffcc80;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .countdown {
+            font-size: 1.5em;
+            margin: 30px 0;
+            color: #ff8c00;
+        }
+        
+        .wishes {
+            background-color: #ffe0b2;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            margin-top: 50px;
+            color: #666;
+            font-size: 0.8em;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background-color: #ff8c00;
+            position: absolute;
+            top: -15px;
+            animation: confetti 5s ease-in-out infinite;
+        }
+        
+        button {
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background-color: #e67e00;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Joyeux Anniversaire!</h1>
+            <p>Une journée spéciale pour une personne spéciale</p>
+        </header>
+        
+        <div class="birthday-cake">🎂</div>
+        
+        <div class="message">
+            <h2>Bon Anniversaire David!</h2>
+            <p>En ce jour spécial, nous voulons te souhaiter un merveilleux anniversaire rempli de joie, d'amour et de bonheur. Que cette nouvelle année de ta vie t'apporte tout ce que tu désires! Profite bien de cette journée qui est la tienne!</p>
+        </div>
+        
+        <div class="countdown">
+            <p id="countdown">C'est aujourd'hui ! 🎉</p>
+        </div>
+        
+        <button id="celebrateBtn">Cliquez pour fêter David ! 🎉</button>
+        
+        <h2>Galerie de souvenirs</h2>
+        <div class="photo-gallery">
+            <div class="photo">Ajoutez une photo de David ici</div>
+            <div class="photo">Un souvenir mémorable</div>
+            <div class="photo">David et ses amis</div>
+            <div class="photo">Un moment spécial</div>
+        </div>
+        
+        <div class="wishes">
+            <h2>Messages d'anniversaire</h2>
+            <blockquote>
+                "David, tu es un homme extraordinaire qui mérite tout le bonheur du monde. Ton énergie et ta passion sont contagieuses. Joyeux anniversaire!" - Thomas
+            </blockquote>
+            <blockquote>
+                "À notre ami qui aime tant l'orange! Que cette journée soit aussi rayonnante que ta personnalité. Bon anniversaire David!" - Sophie
+            </blockquote>
+            <blockquote>
+                "Joyeux anniversaire David! Que cette année t'apporte succès, santé et bonheur! Reste l'homme formidable que tu es!" - Julien
+            </blockquote>
+        </div>
+        
+        <footer>
+            <p>Fait avec ❤️ pour toi!</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Créer des confettis aux couleurs orangées
+        function createConfetti(count) {
+            for (let i = 0; i < count; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                
+                // Palette de couleurs orangées
+                const colors = ['#ff8c00', '#ffa500', '#ff7f00', '#ff6600', '#ff9900'];
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = (Math.random() * 2) + 's';
+                document.body.appendChild(confetti);
+                
+                // Supprimer les confettis après animation pour éviter surcharge
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Créer les confettis initiaux
+        createConfetti(50);
+        
+        // Fonction pour célébrer l'anniversaire
+        function celebrateBirthday() {
+            // Afficher le message
+            document.getElementById('countdown').innerHTML = "C'est aujourd'hui ! 🎉 JOYEUX ANNIVERSAIRE DAVID !";
+            
+            // Animer le gâteau
+            const cakeElement = document.querySelector('.birthday-cake');
+            cakeElement.innerHTML = '🎂🥳🎉';
+            cakeElement.style.fontSize = '120px';
+            
+            // Créer plus de confettis
+            createConfetti(100);
+            
+            // Ajouter un effet sonore (en option)
+            const audio = new Audio('https://soundbible.com/mp3/Ta Da-SoundBible.com-1884170640.mp3');
+            audio.play().catch(e => console.log('Auto-play prevented by browser'));
+        }
+        
+        // Exécuter la célébration au chargement
+        window.onload = celebrateBirthday;
+        
+        // Ajouter un événement au bouton
+        document.getElementById('celebrateBtn').addEventListener('click', function() {
+            createConfetti(150);
+            
+            // Faire tourner le texte du bouton
+            this.innerHTML = "HOURRA POUR DAVID! 🎊🎉🎈";
+            setTimeout(() => {
+                this.innerHTML = "Encore des confettis! 🎊";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
